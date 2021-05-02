@@ -13,6 +13,11 @@
     });
 
     function navigate(path: string) {
+        if (!path) {
+            path = '#/';
+            location.replace(`${location.href}${path}`);
+        }
+        
         if (path.startsWith('#')) path = path.substring(1);
 
         route = routes[path];
